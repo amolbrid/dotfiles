@@ -1,0 +1,5 @@
+" Add this line, because tComment is better
+call janus#disable_plugin('nerdcommenter')
+
+let mapleader = ","
+
