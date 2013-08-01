@@ -1,5 +1,5 @@
 [color]
-	ui = auto
+  ui = auto
   interactive = auto
 
 [alias]
@@ -13,7 +13,7 @@
   lll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-  
+
   #list modified files in last commit
   dl = "!git ll -1"
 
@@ -26,5 +26,14 @@
   # find string in repo
   gr = grep -Ii
 
+  # who has done most of the damages
+  who = shortlog -s --
+
 [core]
   editor = /usr/bin/vim
+  excludesfile = /Users/amolbrid/.gitignore
+[credential]
+  helper = osxkeychain
+[user]
+  name = Amol Brid
+  email = amolbrid@gmail.com

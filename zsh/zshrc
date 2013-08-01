@@ -5,7 +5,9 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="amol-kiwi-github"
+#ZSH_THEME="aussiegeek"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -24,7 +26,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
@@ -32,9 +34,13 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git zsh-syntax-highlighting)
+plugins=(git git-flow rvm ruby rails zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/Users/amolbrid/.rvm/gems/ruby-1.9.3-p392/bin:/Users/amolbrid/.rvm/gems/ruby-1.9.3-p392@global/bin:/Users/amolbrid/.rvm/rubies/ruby-1.9.3-p392/bin:/Users/amolbrid/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+export GRADLE_HOME=/work/libs/gradle-1.5
+export PATH=/Users/amolbrid/.rvm/gems/ruby-1.9.3-p392/bin:/Users/amolbrid/.rvm/gems/ruby-1.9.3-p392@global/bin:/Users/amolbrid/.rvm/rubies/ruby-1.9.3-p392/bin:/Users/amolbrid/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$GRADLE_HOME/bin:/usr/local/sbin
+export PATH=$PATH:/work/libs/play-2.1.1/
+
+[[ -s /Users/amolbrid/.nvm/nvm.sh ]] && . /Users/amolbrid/.nvm/nvm.sh # This loads NVM
