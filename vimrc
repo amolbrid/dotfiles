@@ -9,8 +9,8 @@ colorscheme github
 " allow background buffers without writing them
 set hidden
 
-" show line numbers
-set nu
+" show relative line numbers
+set rnu
 
 " highlight search
 set hls
@@ -51,6 +51,11 @@ let mapleader=','
 " clear the search buffer when hitting return
 " :nnoremap W :%s/ *$//g<cr><c-o><cr>
 
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+
 " highlight extra white spaces with red background
 highlight ExtraWhitespace ctermbg=196 guibg=#FF1100 ctermfg=white guifg=white
 match ExtraWhitespace /\s\+$/
@@ -60,6 +65,9 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 
 " auto remove trailing spaces on save
 autocmd filetype java,html,javascript,ruby,haml,css,scss autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
 
 " Backups & Files
 set backup " Enable creation of backup file.
