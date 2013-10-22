@@ -47,8 +47,8 @@ autocmd filetype html,xml set listchars-=tab:>.
 " auto remove trailing spaces on save
 autocmd filetype java,html,javascript,ruby,haml,css,scss autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-" clear search on ENTER key. This does not clear search buffer
-:nnoremap <CR> :nohlsearch<cr>
+" clear search on leader + SPACE key. This does not clear search buffer
+nnoremap <leader><space> :nohlsearch<cr>
 
 " clear the search buffer when hitting return
 " :nnoremap W :%s/ *$//g<cr><c-o><cr>
@@ -58,6 +58,11 @@ nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
+
+" faster way to come out of INSERT mode
+inoremap jj <ESC>
+
+nnoremap <leader>n :NERDTreeToggle<CR>
 
 " Backups & Files
 set backup                    " Enable creation of backup file.
