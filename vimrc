@@ -62,6 +62,9 @@ nnoremap <right> <nop>
 " faster way to come out of INSERT mode
 inoremap jj <ESC>
 
+imap <C-s> <esc>:w<CR>
+map <C-t> <esc>:tabnew<CR>
+
 nnoremap <leader>n :NERDTreeToggle<CR>
 
 " Backups & Files
