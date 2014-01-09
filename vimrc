@@ -62,10 +62,37 @@ nnoremap <right> <nop>
 " faster way to come out of INSERT mode
 inoremap jj <ESC>
 
+" Ctrl+S to save in insert mode"
 imap <C-s> <esc>:w<CR>
+
+" Tab navigations"
 map <C-t> <esc>:tabnew<CR>
+nnoremap th  :tabfirst<CR>
+nnoremap tj  :tabnext<CR>
+nnoremap tk  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap td  :tabclose<CR>
+nnoremap tn  :tabnew<CR>
+
+" Buffer navigation
+nnoremap <Leader>b :bp<CR>
+nnoremap <Leader>f :bn<CR>
+nnoremap <Leader>g :e#<CR>
 
 nnoremap <leader>n :NERDTreeToggle<CR>
+
+" CtrlP config"
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " Backups & Files
 set backup                    " Enable creation of backup file.
@@ -73,7 +100,7 @@ set backupdir=~/.vim/backups  " Where backups will go.
 set directory=~/.vim/tmp      " Where temporary files will go.
 
 " Status line
-set statusline=%<%t                                               " filename
+set statusline=%02n:%<%t                                          " filename
 set statusline+=%m%r%h%w                                          " flags
 set statusline+=\ [%{strlen(&fenc)?&fenc:&enc}]                   " encoding
 set statusline+=\ %{fugitive#statusline()}\ %{rvm#statusline()}   " git branch

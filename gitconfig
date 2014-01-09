@@ -29,6 +29,9 @@
   # who has done most of the damages
   who = shortlog -s --
 
+  # locate commit where a particular file was introduced
+  added-file = log --diff-filter=A --
+
 [core]
   editor = /usr/bin/vim
   excludesfile = /Users/amolbrid/.gitignore
@@ -37,3 +40,5 @@
 [user]
   name = Amol Brid
   email = amolbrid@gmail.com
+[push]
+	default = simple
