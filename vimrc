@@ -81,6 +81,24 @@ nnoremap <Leader>g :e#<CR>
 
 nnoremap <leader>n :NERDTreeToggle<CR>
 
+" Window management
+" Open new split panes to right and bottom
+set splitbelow
+set splitright
+
+" navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" highlight the status bar when in insert mode
+if version >= 700
+  au InsertEnter * hi StatusLine ctermbg=111 guibg=#88b8f6
+  au InsertLeave * hi StatusLine ctermbg=250 guibg=#bbbbbb " status line color of github scheme
+endif
+
+
 " CtrlP config"
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
