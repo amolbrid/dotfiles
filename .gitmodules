@@ -52,3 +52,6 @@
 [submodule "vim/bundle/xterm-color-table.vim"]
 	path = vim/bundle/xterm-color-table.vim
 	url = https://github.com/guns/xterm-color-table.vim.git
+[submodule "oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+	path = oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
