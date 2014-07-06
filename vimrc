@@ -8,6 +8,9 @@ syntax on
 filetype plugin indent on
 
 colorscheme github
+"let g:solarized_termcolors=256
+"set background=dark
+"colorscheme solarized
 
 set title           " set terminal title
 set cursorline      " hightlight current line
@@ -58,6 +61,10 @@ nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
+
+" quickly jump to start and end of line
+nnoremap ;s ^
+nnoremap ;e $
 
 " faster way to come out of INSERT mode
 inoremap jj <ESC>
