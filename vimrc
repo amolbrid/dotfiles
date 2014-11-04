@@ -7,10 +7,22 @@ let mapleader=','
 syntax on
 filetype plugin indent on
 
-colorscheme github
+"colorscheme github
 "let g:solarized_termcolors=256
 "set background=dark
 "colorscheme solarized
+
+let g:thematic#themes = {
+\ 'bubblegum_light'  : { 'background':'light', 'colorscheme': 'bubblegum' },
+\ 'bubblegum_dark' : { 'background':'dark', 'colorscheme':'bubblegum' },
+\ 'pencil_light'  : { 'background':'light', 'colorscheme': 'pencil' },
+\ 'pencil_dark' : { 'background':'dark', 'colorscheme': 'pencil' },
+\ 'github': { 'background':'light', 'colorscheme': 'github'}
+\ }
+
+let g:thematic#theme_name = 'github'
+
+runtime! plugin/sensible.vim
 
 set title           " set terminal title
 set cursorline      " hightlight current line
@@ -19,11 +31,17 @@ set scrolloff=5     " scroll offset
 set hidden          " allow background buffers without writing them
 set hls             " highlight search
 
+" set noshowmode
+" set noruler
+set laststatus=0
+" set noshowcmd
+
 " temp switch to paste mode
 set pastetoggle=<F2>
 
 " by default show relative line numbers and absolute in 'insert mode'
 set rnu
+set number
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
@@ -100,10 +118,10 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " highlight the status bar when in insert mode
-if version >= 700
-  au InsertEnter * hi StatusLine ctermbg=111 guibg=#88b8f6
-  au InsertLeave * hi StatusLine ctermbg=250 guibg=#bbbbbb " status line color of github scheme
-endif
+" if version >= 700
+"   au InsertEnter * hi StatusLine ctermbg=111 guibg=#88b8f6
+"   au InsertLeave * hi StatusLine ctermbg=250 guibg=#bbbbbb " status line color of github scheme
+" endif
 
 
 " CtrlP config"
@@ -125,9 +143,9 @@ set backupdir=~/.vim/backups  " Where backups will go.
 set directory=~/.vim/tmp      " Where temporary files will go.
 
 " Status line
-set statusline=%02n:%<%t                                          " filename
-set statusline+=%m%r%h%w                                          " flags
-set statusline+=\ [%{strlen(&fenc)?&fenc:&enc}]                   " encoding
-set statusline+=\ %{fugitive#statusline()}\ %{rvm#statusline()}   " git branch
-set statusline+=\ %=%-14.(%l\/%L,\ %c%V%)\ %p%{'%'}               " line and column
+" set statusline=%02n:%<%t                                          " filename
+" set statusline+=%m%r%h%w                                          " flags
+" set statusline+=\ [%{strlen(&fenc)?&fenc:&enc}]                   " encoding
+" set statusline+=\ %{fugitive#statusline()}\ %{rvm#statusline()}   " git branch
+" set statusline+=\ %=%-14.(%l\/%L,\ %c%V%)\ %p%{'%'}               " line and column
 
