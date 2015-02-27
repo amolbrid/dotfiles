@@ -8,19 +8,23 @@ syntax on
 filetype plugin indent on
 
 "colorscheme github
-"let g:solarized_termcolors=256
+let g:solarized_termcolors=256
 "set background=dark
 "colorscheme solarized
 
 let g:thematic#themes = {
+\ 'solarized-light'  : { 'background':'light', 'colorscheme': 'solarized' },
+\ 'flattown'  : { 'background':'dark', 'colorscheme': 'flattown' },
+\ 'coffee'  : { 'background':'dark', 'colorscheme': 'coffee' },
 \ 'bubblegum_light'  : { 'background':'light', 'colorscheme': 'bubblegum' },
-\ 'bubblegum_dark' : { 'background':'dark', 'colorscheme':'bubblegum' },
+\ 'bubblegum_dark' : { 'background':'dark', 'colorscheme': 'bubblegum' },
 \ 'pencil_light'  : { 'background':'light', 'colorscheme': 'pencil' },
 \ 'pencil_dark' : { 'background':'dark', 'colorscheme': 'pencil' },
-\ 'github': { 'background':'light', 'colorscheme': 'github'}
+\ 'github': { 'background':'light', 'colorscheme': 'github'},
+\ 'monokai' : { 'background':'dark', 'colorscheme': 'Monokai' }
 \ }
 
-let g:thematic#theme_name = 'github'
+let g:thematic#theme_name = 'monokai'
 
 runtime! plugin/sensible.vim
 
@@ -53,7 +57,9 @@ set expandtab
 
 " highlight whitespaces
 set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
+" set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set listchars=tab:▸\ ,eol:¬,trail:·,extends:#,nbsp:.
+
 
 " highlight extra white spaces with red background
 highlight ExtraWhitespace ctermbg=196 guibg=#FF1100 ctermfg=white guifg=white
@@ -93,8 +99,8 @@ imap <C-s> <esc>:w<CR>
 " Tab navigations"
 map <C-t> <esc>:tabnew<CR>
 nnoremap th  :tabfirst<CR>
-nnoremap tj  :tabnext<CR>
-nnoremap tk  :tabprev<CR>
+nnoremap tk  :tabnext<CR>
+nnoremap tj  :tabprev<CR>
 nnoremap tl  :tablast<CR>
 nnoremap td  :tabclose<CR>
 nnoremap tn  :tabnew<CR>
@@ -133,6 +139,27 @@ if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
 endif
+
+" EasyMotion config
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Bi-directional find motion
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+" nmap s <Plug>(easymotion-s)
+
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-s2)
+
+" Turn on case sensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>a <Plug>(easymotion-sl)
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
