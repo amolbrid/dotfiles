@@ -34,7 +34,7 @@ set re=1
 
 set title           " set terminal title
 " set cursorline      " hightlight current line
-set showtabline=2   " always show tab bar
+set showtabline=1   " only show tab bar when needed
 set scrolloff=5     " scroll offset
 set hidden          " allow background buffers without writing them
 set hls             " highlight search
