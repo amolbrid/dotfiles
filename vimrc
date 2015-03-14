@@ -13,22 +13,6 @@ filetype plugin indent on
 "colorscheme solarized
 colorscheme monokai
 
-let g:thematic#themes = {
-\ 'solarized-light'  : { 'background':'light', 'colorscheme': 'solarized' },
-\ 'flattown'  : { 'background':'dark', 'colorscheme': 'flattown' },
-\ 'coffee'  : { 'background':'dark', 'colorscheme': 'coffee' },
-\ 'bubblegum_light'  : { 'background':'light', 'colorscheme': 'bubblegum' },
-\ 'bubblegum_dark' : { 'background':'dark', 'colorscheme': 'bubblegum' },
-\ 'pencil_light'  : { 'background':'light', 'colorscheme': 'pencil' },
-\ 'pencil_dark' : { 'background':'dark', 'colorscheme': 'pencil' },
-\ 'github': { 'background':'light', 'colorscheme': 'github'},
-\ 'monokai' : { 'background':'dark', 'colorscheme': 'Monokai' }
-\ }
-
-" let g:thematic#theme_name = 'monokai'
-
-runtime! plugin/sensible.vim
-
 " Use old regex engine for ruby syntax files. More: http://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
 set re=1
 
