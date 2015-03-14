@@ -58,9 +58,6 @@
 [submodule "vim/bundle/vim-elixir"]
 	path = vim/bundle/vim-elixir
 	url = https://github.com/elixir-lang/vim-elixir
-[submodule "vim/bundle/vim-thematic"]
-	path = vim/bundle/vim-thematic
-	url = https://github.com/reedes/vim-thematic
 [submodule "vim/bundle/vim-markdown"]
 	path = vim/bundle/vim-markdown
 	url = https://github.com/tpope/vim-markdown
