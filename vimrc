@@ -8,9 +8,10 @@ syntax on
 filetype plugin indent on
 
 "colorscheme github
-let g:solarized_termcolors=256
+" let g:solarized_termcolors=256
 "set background=dark
 "colorscheme solarized
+colorscheme monokai
 
 let g:thematic#themes = {
 \ 'solarized-light'  : { 'background':'light', 'colorscheme': 'solarized' },
@@ -24,12 +25,15 @@ let g:thematic#themes = {
 \ 'monokai' : { 'background':'dark', 'colorscheme': 'Monokai' }
 \ }
 
-let g:thematic#theme_name = 'monokai'
+" let g:thematic#theme_name = 'monokai'
 
 runtime! plugin/sensible.vim
 
+" Use old regex engine for ruby syntax files. More: http://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
+set re=1
+
 set title           " set terminal title
-set cursorline      " hightlight current line
+" set cursorline      " hightlight current line
 set showtabline=2   " always show tab bar
 set scrolloff=5     " scroll offset
 set hidden          " allow background buffers without writing them
@@ -37,7 +41,7 @@ set hls             " highlight search
 
 " set noshowmode
 " set noruler
-set laststatus=0
+set laststatus=2
 " set noshowcmd
 
 " temp switch to paste mode
@@ -169,10 +173,25 @@ set backup                    " Enable creation of backup file.
 set backupdir=~/.vim/backups  " Where backups will go.
 set directory=~/.vim/tmp      " Where temporary files will go.
 
+" let g:airline_powerline_fonts = 1
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+" let g:airline_symbols.branch = '⎇'
+let g:airline_branch_prefix = '¤'
+" let g:airline_branch_prefix = 'ʎ'
+let g:airline_readonly_symbol = 'R'
+let g:airline_linecolumn_prefix = 'L'
 " Status line
 " set statusline=%02n:%<%t                                          " filename
 " set statusline+=%m%r%h%w                                          " flags
 " set statusline+=\ [%{strlen(&fenc)?&fenc:&enc}]                   " encoding
 " set statusline+=\ %{fugitive#statusline()}\ %{rvm#statusline()}   " git branch
 " set statusline+=\ %=%-14.(%l\/%L,\ %c%V%)\ %p%{'%'}               " line and column
+
+hi TabLine        ctermfg=15 ctermbg=59 cterm=none gui=underline guibg=DarkGrey
+hi TabLineSel     term=reverse ctermbg=12 cterm=none gui=undercurl guisp=Blue
+hi TabLineFill    term=standout ctermbg=59 cterm=none gui=reverse guibg=#3c3d37
 
