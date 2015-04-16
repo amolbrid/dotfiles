@@ -150,7 +150,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	position bottom
+	position top
 #        status_command i3status
         status_command i3status -c ~/.i3/i3status.conf
 }
@@ -162,6 +162,12 @@ bindsym $mod+minus scratchpad show
 
 focus_follows_mouse no
 
+# hide titlebar
+new_window 1pixel
+
+# hide border edges
+hide_edge_borders both
+
 # volume control
 bindsym $mod+F11 exec pactl set-sink-volume 0 -- -10%
 bindsym $mod+F12 exec pactl set-sink-volume 0 -- +10%
@@ -172,22 +178,37 @@ bindsym $mod+Next exec pactl set-sink-volume 0 -- -10%
 bindsym $mod+Prior exec pactl set-sink-volume 0 -- +10%
 bindsym $mod+Pause exec pactl set-sink-mute 0 -- toggle
 
+# volume control
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -10%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 -- +10%
+bindsym XF86AudioMute exec pactl set-sink-mute 0 -- toggle
+
+# spotify control
+bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+
 # lock screen
 bindsym $mod+Control+l exec sh ~/.i3/i3lock.sh
 
 # turn screen off after 5 mins
 exec --no-startup-id xset dpms 300
 
+# Show network manager applet
+# exec --no-startup-id nm-applet
+
 # start dropbox
 exec --no-startup-id dropbox start
-
-# set HDMI monitor of left of primary
-exec --no-startup-id ~/.i3/autoxrandr-v1
-#exec --no-startup-id ~/.i3/autoxrandr
 
 # set wallpaper
 exec --no-startup-id feh --bg-scal /home/amol/.i3/small_irregular_cubes.jpg
 #exec --no-startup-id xsetroot -solid "#333333"
+
+# set HDMI monitor on left of primary
+exec --no-startup-id ~/.i3/autoxrandr-v1
+#exec --no-startup-id ~/.i3/autoxrandr
+
 
 # calculator
 for_window [class="Gcalctool" instance="gcalctool"] floating enable
@@ -195,3 +216,10 @@ for_window [class="Gcalctool" instance="gcalctool"] floating enable
 for_window [class="Unity-control-center" instance="unity-control-center"] floating enable
 # ubuntu software center
 for_window [class="Software-center" instance="software-center"] floating enable
+# skype
+# for_window [class="Skype" instance="skype"] floating enable
+
+# open skype in workspace 1
+assign [class="Skype"] 1
+for_window [class="Skype"] focus
+
