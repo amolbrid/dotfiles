@@ -166,7 +166,7 @@ focus_follows_mouse no
 new_window 1pixel
 
 # hide border edges
-hide_edge_borders both
+#hide_edge_borders both
 
 # volume control
 bindsym $mod+F11 exec pactl set-sink-volume 0 -- -10%
@@ -192,6 +192,10 @@ bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer
 # lock screen
 bindsym $mod+Control+l exec sh ~/.i3/i3lock.sh
 
+# set HDMI monitor on left of primary
+#exec --no-startup-id ~/.i3/autoxrandr-v1
+exec --no-startup-id ~/.i3/autoxrandr.sh
+
 # turn screen off after 5 mins
 exec --no-startup-id xset dpms 300
 
@@ -199,15 +203,11 @@ exec --no-startup-id xset dpms 300
 # exec --no-startup-id nm-applet
 
 # start dropbox
-exec --no-startup-id dropbox start
+exec --no-startup-id python ~/bin/dropbox.py start
 
 # set wallpaper
-exec --no-startup-id feh --bg-scal /home/amol/.i3/small_irregular_cubes.jpg
+#exec --no-startup-id feh --bg-scal /home/amol/.i3/small_irregular_cubes.jpg
 #exec --no-startup-id xsetroot -solid "#333333"
-
-# set HDMI monitor on left of primary
-exec --no-startup-id ~/.i3/autoxrandr-v1
-#exec --no-startup-id ~/.i3/autoxrandr
 
 
 # calculator
