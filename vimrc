@@ -1,6 +1,9 @@
 set nocompatible
 
 execute pathogen#infect()
+"
+" reload .vimrc when modified and saved from vim
+au BufWritePost .vimrc so $MYVIMRC
 
 let mapleader=','
 
