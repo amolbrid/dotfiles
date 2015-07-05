@@ -129,16 +129,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym j resize shrink width 5 px or 5 ppt
+        bindsym k resize grow height 5 px or 5 ppt
+        bindsym l resize shrink height 5 px or 5 ppt
+        bindsym semicolon resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -163,10 +163,10 @@ bindsym $mod+minus scratchpad show
 focus_follows_mouse no
 
 # hide titlebar
-new_window 1pixel
+new_window pixel 2
 
 # hide border edges
-#hide_edge_borders both
+#hide_edge_borders vertical
 
 # volume control
 bindsym $mod+F11 exec pactl set-sink-volume 0 -- -10%
@@ -206,18 +206,20 @@ exec --no-startup-id xset dpms 300
 exec --no-startup-id python ~/bin/dropbox.py start
 
 # set wallpaper
-#exec --no-startup-id feh --bg-scal /home/amol/.i3/small_irregular_cubes.jpg
-#exec --no-startup-id xsetroot -solid "#333333"
+exec --no-startup-id feh --bg-scal /home/amol/wallpaper.jpg
+#exec --no-startup-id xsetroot -solid "#000000"
 
 
 # calculator
-for_window [class="Gcalctool" instance="gcalctool"] floating enable
+#for_window [class="Gcalctool" instance="gcalctool"] floating enable
 # system sessing dialog
-for_window [class="Unity-control-center" instance="unity-control-center"] floating enable
+#for_window [class="Unity-control-center" instance="unity-control-center"] floating enable
 # ubuntu software center
-for_window [class="Software-center" instance="software-center"] floating enable
+#for_window [class="Software-center" instance="software-center"] floating enable
 # skype
 # for_window [class="Skype" instance="skype"] floating enable
+# cheese
+for_window [class="Cheese" instance="cheese"] floating enable
 
 # open skype in workspace 1
 assign [class="Skype"] 1

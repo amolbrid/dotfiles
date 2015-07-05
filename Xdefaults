@@ -1,0 +1,49 @@
+Xft.dpi:                    96
+Xft.antialias:              false
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
+
+
+URxvt.termName:         rxvt-256color
+
+URxvt.reverseVideo: True
+
+URxvt.urgentOnBell: true
+
+! xterm like colors
+URxvt*color12: rgb:5c/5c/ff
+
+! Fonts
+URxvt.allow_bold   : true
+URxvt*font         : xft:M+ 1m:pixelsize=14
+URxvt*boldFont     : xft:M+ 1m:pixelsize=14
+!URxvt*font         : xft:Monospace:pixelsize=14
+!URxvt*boldFont     : xft:Monospace:pixelsize=14
+! Fix font space
+!URxvt*letterSpace  : -1
+
+URxvt.scrollBar   : false
+URxvt.scrollstyle : plain
+Rxvt.saveLines    : 10000
+
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+! clickable urls
+URxvt.perl-ext-common : default,matcher
+URxvt.url-launcher    : /usr/bin/firefox
+URxvt.matcher.button  : 1
+URxvt.colorUL         : #4682B4
+
+! Cursor
+URxvt.cursorBlink     : true
+URxvt.cursorColor     : #657b83
+URxvt.cursorUnderline : false
+
