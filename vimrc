@@ -7,7 +7,8 @@ filetype plugin indent on
 " reload .vimrc when modified and saved from vim
 au BufWritePost .vimrc so $MYVIMRC
 
-let mapleader=','
+" let mapleader=','
+let mapleader=';'
 
 set t_Co=256
 colorscheme monokai
@@ -48,7 +49,7 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd filetype html,xml set listchars-=tab:>.
 
 " auto remove trailing spaces on save
-autocmd filetype java,html,javascript,ruby,haml,css,scss,hbs autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd filetype java,html,javascript,ruby,haml,css,scss,hbs,erb,coffee autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " clear search on leader + SPACE key. This does not clear search buffer
 nnoremap <leader><space> :nohlsearch<cr>
@@ -74,17 +75,15 @@ imap <C-s> <esc>:w<CR>
 
 " Tab navigations"
 map <C-t> <esc>:tabnew<CR>
-nnoremap th  :tabfirst<CR>
 nnoremap tk  :tabnext<CR>
 nnoremap tj  :tabprev<CR>
-nnoremap tl  :tablast<CR>
 nnoremap td  :tabclose<CR>
 nnoremap tn  :tabnew<CR>
 
 " Buffer navigation
-nnoremap <Leader>b :bp<CR>
-nnoremap <Leader>f :bn<CR>
-nnoremap <Leader>g :e#<CR>
+" nnoremap <Leader>b :bp<CR>
+" nnoremap <Leader>f :bn<CR>
+nnoremap <Leader><Leader> :e#<CR>
 
 
 " Window management
@@ -117,6 +116,8 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+
+nnoremap <leader>ll :CtrlPBuffer<cr>
 
 if executable('ag')
   " Use ag over grep
