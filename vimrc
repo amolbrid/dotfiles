@@ -1,11 +1,10 @@
 set nocompatible
 
+au BufWritePost .vimrc so $MYVIMRC
+
 execute pathogen#infect()
 
-let mapleader=','
-
-syntax on
-filetype plugin indent on
+let mapleader=';'
 
 "colorscheme github
 " let g:solarized_termcolors=256
@@ -17,16 +16,12 @@ colorscheme monokai
 set re=1
 
 set title           " set terminal title
-" set cursorline      " hightlight current line
+set cursorline      " hightlight current line
 set showtabline=1   " only show tab bar when needed
 set scrolloff=5     " scroll offset
 set hidden          " allow background buffers without writing them
 set hls             " highlight search
-
-" set noshowmode
-" set noruler
-set laststatus=2
-" set noshowcmd
+set colorcolumn=120
 
 " temp switch to paste mode
 set pastetoggle=<F2>
@@ -48,7 +43,6 @@ set list
 " set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set listchars=tab:▸\ ,eol:¬,trail:·,extends:#,nbsp:.
 
-
 " highlight extra white spaces with red background
 highlight ExtraWhitespace ctermbg=196 guibg=#FF1100 ctermfg=white guifg=white
 match ExtraWhitespace /\s\+$/
@@ -59,8 +53,10 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 " exclude html and xml files from tab highlighting
 autocmd filetype html,xml set listchars-=tab:>.
 
+" Treat .json files as .js
+autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 " auto remove trailing spaces on save
-autocmd filetype java,html,javascript,ruby,haml,css,scss autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd filetype java,html,javascript,ruby,haml,css,scss,coffee,erb autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " clear search on leader + SPACE key. This does not clear search buffer
 nnoremap <leader><space> :nohlsearch<cr>
@@ -86,17 +82,16 @@ imap <C-s> <esc>:w<CR>
 
 " Tab navigations"
 map <C-t> <esc>:tabnew<CR>
-nnoremap th  :tabfirst<CR>
 nnoremap tk  :tabnext<CR>
 nnoremap tj  :tabprev<CR>
-nnoremap tl  :tablast<CR>
 nnoremap td  :tabclose<CR>
 nnoremap tn  :tabnew<CR>
 
 " Buffer navigation
-nnoremap <Leader>b :bp<CR>
-nnoremap <Leader>f :bn<CR>
-nnoremap <Leader>g :e#<CR>
+" nnoremap <Leader>b :bp<CR>
+" nnoremap <Leader>f :bn<CR>
+" nnoremap <Leader>ll :e#<CR>
+nnoremap <Leader><Leader> :e#<CR>
 
 nnoremap <leader>n :NERDTreeToggle<CR>
 
@@ -122,6 +117,8 @@ nnoremap <C-H> <C-W><C-H>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+
+nnoremap <leader>ll :CtrlPBuffer<cr>
 
 if executable('ag')
   " Use ag over grep
