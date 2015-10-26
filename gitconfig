@@ -13,6 +13,7 @@
   lll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  lm = log --merges --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short --since='2 week ago'
 
   #list modified files in last commit
   dl = "!git ll -1"
@@ -27,18 +28,29 @@
   gr = grep -Ii
 
   # who has done most of the damages
-  who = shortlog -s --
+  who = shortlog -s -n --
 
   # locate commit where a particular file was introduced
   added-file = log --diff-filter=A --
 
 [core]
-  editor = /usr/bin/vim
-  excludesfile = /Users/amolbrid/.gitignore
+  editor = /usr/local/bin/vi
+	excludesfile = /Users/abrid/.gitignore
+	autocrlf = input
 [credential]
   helper = osxkeychain
 [user]
-  name = Amol Brid
-  email = amolbrid@gmail.com
+	name = Amol Brid
+	email = amolbrid@gmail.com
 [push]
-	default = simple
+  default = simple
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
