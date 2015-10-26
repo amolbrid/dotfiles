@@ -91,3 +91,6 @@
 [submodule "vim/bundle/yajs.vim"]
 	path = vim/bundle/yajs.vim
 	url = https://github.com/othree/yajs.vim.git
+[submodule "vim/bundle/cosco.vim"]
+	path = vim/bundle/cosco.vim
+	url = https://github.com/lfilho/cosco.vim.git
